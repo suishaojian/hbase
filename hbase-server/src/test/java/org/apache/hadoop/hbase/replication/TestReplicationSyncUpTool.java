@@ -1,4 +1,4 @@
-/*
+/**
  * Licensed to the Apache Software Foundation (ASF) under one
  * or more contributor license agreements.  See the NOTICE file
  * distributed with this work for additional information
@@ -69,7 +69,6 @@ public class TestReplicationSyncUpTool extends TestReplicationBase {
 
   @Before
   public void setUp() throws Exception {
-
     HColumnDescriptor fam;
 
     t1_syncupSource = new HTableDescriptor(t1_su);
@@ -105,7 +104,7 @@ public class TestReplicationSyncUpTool extends TestReplicationBase {
    * check's gone Also check the puts and deletes are not replicated back to
    * the originating cluster.
    */
-  @Test(timeout = 300000)
+  @Test
   public void testSyncUpTool() throws Exception {
 
     /**
@@ -181,7 +180,6 @@ public class TestReplicationSyncUpTool extends TestReplicationBase {
      * verify correctly replicated to Slave
      */
     mimicSyncUpAfterPut();
-
   }
 
   protected void setupReplication() throws Exception {
