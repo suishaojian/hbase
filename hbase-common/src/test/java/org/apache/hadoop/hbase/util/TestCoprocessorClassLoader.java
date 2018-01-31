@@ -1,4 +1,5 @@
-/**
+/*
+ *
  * Licensed to the Apache Software Foundation (ASF) under one
  * or more contributor license agreements.  See the NOTICE file
  * distributed with this work for additional information
@@ -26,14 +27,13 @@ import static org.junit.Assert.fail;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
+
 import org.apache.hadoop.conf.Configuration;
 import org.apache.hadoop.fs.Path;
-import org.apache.hadoop.hbase.HBaseClassTestRule;
 import org.apache.hadoop.hbase.HBaseCommonTestingUtility;
 import org.apache.hadoop.hbase.testclassification.MiscTests;
 import org.apache.hadoop.hbase.testclassification.SmallTests;
 import org.apache.hadoop.io.IOUtils;
-import org.junit.ClassRule;
 import org.junit.Test;
 import org.junit.experimental.categories.Category;
 
@@ -42,10 +42,6 @@ import org.junit.experimental.categories.Category;
  */
 @Category({MiscTests.class, SmallTests.class})
 public class TestCoprocessorClassLoader {
-
-  @ClassRule
-  public static final HBaseClassTestRule CLASS_RULE =
-      HBaseClassTestRule.forClass(TestCoprocessorClassLoader.class);
 
   private static final HBaseCommonTestingUtility TEST_UTIL = new HBaseCommonTestingUtility();
   private static final Configuration conf = TEST_UTIL.getConfiguration();

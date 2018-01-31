@@ -20,14 +20,13 @@ package org.apache.hadoop.hbase.client;
 import static org.junit.Assert.assertTrue;
 
 import java.io.IOException;
+
 import org.apache.hadoop.conf.Configuration;
-import org.apache.hadoop.hbase.HBaseClassTestRule;
 import org.apache.hadoop.hbase.HBaseConfiguration;
 import org.apache.hadoop.hbase.TableName;
 import org.apache.hadoop.hbase.ipc.RpcControllerFactory;
 import org.apache.hadoop.hbase.testclassification.ClientTests;
 import org.apache.hadoop.hbase.testclassification.SmallTests;
-import org.junit.ClassRule;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.experimental.categories.Category;
@@ -35,11 +34,6 @@ import org.junit.rules.TestName;
 
 @Category({SmallTests.class, ClientTests.class})
 public class TestBufferedMutator {
-
-  @ClassRule
-  public static final HBaseClassTestRule CLASS_RULE =
-      HBaseClassTestRule.forClass(TestBufferedMutator.class);
-
   @Rule
   public TestName name = new TestName();
 

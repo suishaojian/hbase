@@ -1,4 +1,5 @@
 /**
+ *
  * Licensed to the Apache Software Foundation (ASF) under one
  * or more contributor license agreements.  See the NOTICE file
  * distributed with this work for additional information
@@ -18,19 +19,14 @@
 package org.apache.hadoop.hbase.io.hfile;
 
 import java.nio.ByteBuffer;
+
 import junit.framework.TestCase;
-import org.apache.hadoop.hbase.HBaseClassTestRule;
 import org.apache.hadoop.hbase.testclassification.IOTests;
 import org.apache.hadoop.hbase.testclassification.SmallTests;
-import org.junit.ClassRule;
 import org.junit.experimental.categories.Category;
 
 @Category({IOTests.class, SmallTests.class})
 public class TestCachedBlockQueue extends TestCase {
-
-  @ClassRule
-  public static final HBaseClassTestRule CLASS_RULE =
-      HBaseClassTestRule.forClass(TestCachedBlockQueue.class);
 
   public void testQueue() throws Exception {
 
@@ -66,7 +62,7 @@ public class TestCachedBlockQueue extends TestCase {
     assertEquals(queue.heapSize(), expectedSize);
 
     for (int i = 1; i <= 8; i++) {
-      assertEquals(queue.pollLast().getCacheKey().getHfileName(), "cb"+i);
+      assertEquals(queue.pollLast().getCacheKey().getHfileName(), "cb"+i);      
     }
   }
 
@@ -111,7 +107,7 @@ public class TestCachedBlockQueue extends TestCase {
     assertEquals(queue.heapSize(), expectedSize);
 
     for (int i = 0; i <= 8; i++) {
-      assertEquals(queue.pollLast().getCacheKey().getHfileName(), "cb"+i);
+      assertEquals(queue.pollLast().getCacheKey().getHfileName(), "cb"+i);      
     }
   }
 

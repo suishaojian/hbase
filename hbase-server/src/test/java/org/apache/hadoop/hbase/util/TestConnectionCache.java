@@ -1,4 +1,5 @@
-/**
+/*
+ *
  * Licensed to the Apache Software Foundation (ASF) under one
  * or more contributor license agreements.  See the NOTICE file
  * distributed with this work for additional information
@@ -18,22 +19,15 @@
 package org.apache.hadoop.hbase.util;
 
 import junit.framework.TestCase;
-import org.apache.hadoop.hbase.HBaseClassTestRule;
 import org.apache.hadoop.hbase.HBaseTestingUtility;
-import org.apache.hadoop.hbase.security.UserProvider;
 import org.apache.hadoop.hbase.testclassification.MediumTests;
 import org.apache.hadoop.hbase.testclassification.MiscTests;
-import org.junit.ClassRule;
+import org.apache.hadoop.hbase.security.UserProvider;
 import org.junit.Test;
 import org.junit.experimental.categories.Category;
 
 @Category({MiscTests.class, MediumTests.class})
 public class TestConnectionCache extends TestCase {
-
-  @ClassRule
-  public static final HBaseClassTestRule CLASS_RULE =
-      HBaseClassTestRule.forClass(TestConnectionCache.class);
-
   private static final HBaseTestingUtility UTIL = new HBaseTestingUtility();
 
   /**

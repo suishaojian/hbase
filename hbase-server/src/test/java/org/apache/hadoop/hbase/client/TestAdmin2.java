@@ -1,4 +1,5 @@
 /**
+ *
  * Licensed to the Apache Software Foundation (ASF) under one
  * or more contributor license agreements.  See the NOTICE file
  * distributed with this work for additional information
@@ -32,7 +33,6 @@ import java.util.concurrent.atomic.AtomicInteger;
 import java.util.stream.Collectors;
 import org.apache.hadoop.conf.Configuration;
 import org.apache.hadoop.hbase.ClusterMetrics.Option;
-import org.apache.hadoop.hbase.HBaseClassTestRule;
 import org.apache.hadoop.hbase.HBaseTestingUtility;
 import org.apache.hadoop.hbase.HColumnDescriptor;
 import org.apache.hadoop.hbase.HConstants;
@@ -61,7 +61,6 @@ import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
-import org.junit.ClassRule;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.experimental.categories.Category;
@@ -71,6 +70,7 @@ import org.slf4j.LoggerFactory;
 
 import org.apache.hadoop.hbase.shaded.protobuf.ProtobufUtil;
 
+
 /**
  * Class to test HBaseAdmin.
  * Spins up the minicluster once at test start and then takes it down afterward.
@@ -78,11 +78,6 @@ import org.apache.hadoop.hbase.shaded.protobuf.ProtobufUtil;
  */
 @Category({LargeTests.class, ClientTests.class})
 public class TestAdmin2 {
-
-  @ClassRule
-  public static final HBaseClassTestRule CLASS_RULE =
-      HBaseClassTestRule.forClass(TestAdmin2.class);
-
   private static final Logger LOG = LoggerFactory.getLogger(TestAdmin2.class);
   private final static HBaseTestingUtility TEST_UTIL = new HBaseTestingUtility();
   private Admin admin;

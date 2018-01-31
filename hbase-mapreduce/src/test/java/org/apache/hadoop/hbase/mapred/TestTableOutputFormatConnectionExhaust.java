@@ -17,10 +17,6 @@
  */
 package org.apache.hadoop.hbase.mapred;
 
-import static org.junit.Assert.fail;
-
-import java.io.IOException;
-import org.apache.hadoop.hbase.HBaseClassTestRule;
 import org.apache.hadoop.hbase.HBaseTestingUtility;
 import org.apache.hadoop.hbase.HConstants;
 import org.apache.hadoop.hbase.io.ImmutableBytesWritable;
@@ -30,11 +26,14 @@ import org.apache.hadoop.mapred.RecordWriter;
 import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
-import org.junit.ClassRule;
 import org.junit.Test;
 import org.junit.experimental.categories.Category;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
+import java.io.IOException;
+
+import static org.junit.Assert.fail;
 
 /**
  * Spark creates many instances of TableOutputFormat within a single process.  We need to make
@@ -44,10 +43,6 @@ import org.slf4j.LoggerFactory;
  */
 @Category(MediumTests.class)
 public class TestTableOutputFormatConnectionExhaust {
-
-  @ClassRule
-  public static final HBaseClassTestRule CLASS_RULE =
-      HBaseClassTestRule.forClass(TestTableOutputFormatConnectionExhaust.class);
 
   private static final Logger LOG =
       LoggerFactory.getLogger(TestTableOutputFormatConnectionExhaust.class);

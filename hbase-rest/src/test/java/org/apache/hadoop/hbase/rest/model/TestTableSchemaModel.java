@@ -1,4 +1,5 @@
-/**
+/*
+ *
  * Licensed to the Apache Software Foundation (ASF) under one
  * or more contributor license agreements.  See the NOTICE file
  * distributed with this work for additional information
@@ -15,6 +16,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
 package org.apache.hadoop.hbase.rest.model;
 
 import static org.junit.Assert.assertEquals;
@@ -22,10 +24,10 @@ import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
 import java.util.Iterator;
-import org.apache.hadoop.hbase.HBaseClassTestRule;
+
 import org.apache.hadoop.hbase.testclassification.RestTests;
 import org.apache.hadoop.hbase.testclassification.SmallTests;
-import org.junit.ClassRule;
+
 import org.junit.Test;
 import org.junit.experimental.categories.Category;
 import org.slf4j.Logger;
@@ -33,11 +35,6 @@ import org.slf4j.LoggerFactory;
 
 @Category({RestTests.class, SmallTests.class})
 public class TestTableSchemaModel extends TestModelBase<TableSchemaModel> {
-
-  @ClassRule
-  public static final HBaseClassTestRule CLASS_RULE =
-      HBaseClassTestRule.forClass(TestTableSchemaModel.class);
-
   private static final Logger LOG = LoggerFactory.getLogger(TestTableSchemaModel.class);
 
   public static final String TABLE_NAME = "testTable";

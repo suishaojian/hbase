@@ -1,4 +1,5 @@
 /**
+ *
  * Licensed to the Apache Software Foundation (ASF) under one
  * or more contributor license agreements.  See the NOTICE file
  * distributed with this work for additional information
@@ -17,25 +18,19 @@
  */
 package org.apache.hadoop.hbase.exceptions;
 
-import static org.junit.Assert.*;
-
-import java.io.IOException;
-import org.apache.hadoop.hbase.HBaseClassTestRule;
+import org.apache.hbase.thirdparty.com.google.protobuf.ServiceException;
 import org.apache.hadoop.hbase.testclassification.ClientTests;
 import org.apache.hadoop.hbase.testclassification.SmallTests;
-import org.junit.ClassRule;
 import org.junit.Test;
 import org.junit.experimental.categories.Category;
 
-import org.apache.hbase.thirdparty.com.google.protobuf.ServiceException;
+import java.io.IOException;
+
+import static org.junit.Assert.*;
 
 @SuppressWarnings("ThrowableInstanceNeverThrown")
 @Category({ SmallTests.class, ClientTests.class })
 public class TestClientExceptionsUtil {
-
-  @ClassRule
-  public static final HBaseClassTestRule CLASS_RULE =
-      HBaseClassTestRule.forClass(TestClientExceptionsUtil.class);
 
   @Test
   public void testFindException() throws Exception {

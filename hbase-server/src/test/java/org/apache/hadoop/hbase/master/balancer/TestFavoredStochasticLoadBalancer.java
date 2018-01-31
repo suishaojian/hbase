@@ -33,7 +33,6 @@ import java.util.Set;
 import java.util.stream.Collectors;
 import org.apache.hadoop.conf.Configuration;
 import org.apache.hadoop.hbase.ClusterMetrics.Option;
-import org.apache.hadoop.hbase.HBaseClassTestRule;
 import org.apache.hadoop.hbase.HBaseTestingUtility;
 import org.apache.hadoop.hbase.HColumnDescriptor;
 import org.apache.hadoop.hbase.HConstants;
@@ -59,7 +58,6 @@ import org.apache.hadoop.hbase.util.JVMClusterUtil;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.BeforeClass;
-import org.junit.ClassRule;
 import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.experimental.categories.Category;
@@ -73,10 +71,6 @@ import org.apache.hbase.thirdparty.com.google.common.collect.Sets;
 @Ignore // Disabled
 @Category(MediumTests.class)
 public class TestFavoredStochasticLoadBalancer extends BalancerTestBase {
-
-  @ClassRule
-  public static final HBaseClassTestRule CLASS_RULE =
-      HBaseClassTestRule.forClass(TestFavoredStochasticLoadBalancer.class);
 
   private static final Logger LOG =
       LoggerFactory.getLogger(TestFavoredStochasticLoadBalancer.class);

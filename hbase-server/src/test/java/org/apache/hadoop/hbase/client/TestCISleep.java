@@ -22,7 +22,6 @@ import static org.junit.Assert.fail;
 
 import java.net.SocketTimeoutException;
 import org.apache.hadoop.conf.Configuration;
-import org.apache.hadoop.hbase.HBaseClassTestRule;
 import org.apache.hadoop.hbase.HConstants;
 import org.apache.hadoop.hbase.TableName;
 import org.apache.hadoop.hbase.ipc.HBaseRpcController;
@@ -30,7 +29,6 @@ import org.apache.hadoop.hbase.ipc.RpcControllerFactory;
 import org.apache.hadoop.hbase.testclassification.ClientTests;
 import org.apache.hadoop.hbase.testclassification.MediumTests;
 import org.junit.Before;
-import org.junit.ClassRule;
 import org.junit.Test;
 import org.junit.experimental.categories.Category;
 import org.slf4j.Logger;
@@ -38,10 +36,6 @@ import org.slf4j.LoggerFactory;
 
 @Category({ ClientTests.class, MediumTests.class })
 public class TestCISleep extends AbstractTestCITimeout {
-
-  @ClassRule
-  public static final HBaseClassTestRule CLASS_RULE =
-      HBaseClassTestRule.forClass(TestCISleep.class);
 
   private static Logger LOG = LoggerFactory.getLogger(TestCISleep.class);
 

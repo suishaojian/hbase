@@ -1,4 +1,5 @@
 /**
+ *
  * Licensed to the Apache Software Foundation (ASF) under one
  * or more contributor license agreements.  See the NOTICE file
  * distributed with this work for additional information
@@ -30,10 +31,10 @@ import static org.mockito.Mockito.spy;
 import java.io.IOException;
 import java.util.Arrays;
 import java.util.Map;
+
 import org.apache.hadoop.conf.Configuration;
 import org.apache.hadoop.hbase.*;
 import org.apache.hadoop.hbase.Cell;
-import org.apache.hadoop.hbase.HBaseClassTestRule;
 import org.apache.hadoop.hbase.client.Connection;
 import org.apache.hadoop.hbase.client.ConnectionFactory;
 import org.apache.hadoop.hbase.client.Put;
@@ -61,7 +62,6 @@ import org.apache.hadoop.mapred.lib.NullOutputFormat;
 import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
-import org.junit.ClassRule;
 import org.junit.Test;
 import org.junit.experimental.categories.Category;
 import org.mockito.invocation.InvocationOnMock;
@@ -74,10 +74,6 @@ import org.slf4j.LoggerFactory;
  */
 @Category({MapReduceTests.class, LargeTests.class})
 public class TestTableInputFormat {
-
-  @ClassRule
-  public static final HBaseClassTestRule CLASS_RULE =
-      HBaseClassTestRule.forClass(TestTableInputFormat.class);
 
   private static final Logger LOG = LoggerFactory.getLogger(TestTableInputFormat.class);
 

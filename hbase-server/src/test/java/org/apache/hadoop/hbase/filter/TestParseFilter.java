@@ -1,4 +1,5 @@
 /**
+ *
  * Licensed to the Apache Software Foundation (ASF) under one
  * or more contributor license agreements.  See the NOTICE file
  * distributed with this work for additional information
@@ -25,14 +26,13 @@ import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.List;
+
 import org.apache.hadoop.hbase.CompareOperator;
-import org.apache.hadoop.hbase.HBaseClassTestRule;
 import org.apache.hadoop.hbase.testclassification.RegionServerTests;
 import org.apache.hadoop.hbase.testclassification.SmallTests;
 import org.apache.hadoop.hbase.util.Bytes;
 import org.junit.After;
 import org.junit.Before;
-import org.junit.ClassRule;
 import org.junit.Test;
 import org.junit.experimental.categories.Category;
 
@@ -43,10 +43,6 @@ import org.junit.experimental.categories.Category;
  */
 @Category({RegionServerTests.class, SmallTests.class})
 public class TestParseFilter {
-
-  @ClassRule
-  public static final HBaseClassTestRule CLASS_RULE =
-      HBaseClassTestRule.forClass(TestParseFilter.class);
 
   ParseFilter f;
   Filter filter;
@@ -670,11 +666,11 @@ public class TestParseFilter {
     String filterString = "(FirstKeyOnlyFilter())";
     FirstKeyOnlyFilter firstKeyOnlyFilter = doTestFilter(filterString, FirstKeyOnlyFilter.class);
   }
-
+  
   @Test
   public void testRegisterFilter() {
     ParseFilter.registerFilter("MyFilter", "some.class");
-
+    
     assertTrue(f.getSupportedFilters().contains("MyFilter"));
   }
 

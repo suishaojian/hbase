@@ -15,6 +15,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
 package org.apache.hadoop.hbase;
 
 import static org.junit.Assert.assertTrue;
@@ -25,7 +26,6 @@ import org.apache.hadoop.hbase.util.JVMClusterUtil.MasterThread;
 import org.apache.hadoop.hbase.util.JVMClusterUtil.RegionServerThread;
 import org.junit.After;
 import org.junit.Before;
-import org.junit.ClassRule;
 import org.junit.Test;
 import org.junit.experimental.categories.Category;
 
@@ -34,10 +34,6 @@ import org.junit.experimental.categories.Category;
  */
 @Category({MiscTests.class, MediumTests.class})
 public class TestClusterBootOrder {
-
-  @ClassRule
-  public static final HBaseClassTestRule CLASS_RULE =
-      HBaseClassTestRule.forClass(TestClusterBootOrder.class);
 
   private static final long SLEEP_INTERVAL = 1000;
   private static final long SLEEP_TIME = 4000;

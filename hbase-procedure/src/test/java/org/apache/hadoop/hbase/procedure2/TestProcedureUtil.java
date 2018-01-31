@@ -15,27 +15,21 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
 package org.apache.hadoop.hbase.procedure2;
 
-import static org.junit.Assert.assertEquals;
-
-import org.apache.hadoop.hbase.HBaseClassTestRule;
 import org.apache.hadoop.hbase.procedure2.ProcedureTestingUtility.TestProcedure;
-import org.apache.hadoop.hbase.testclassification.MasterTests;
+import org.apache.hadoop.hbase.shaded.protobuf.generated.ProcedureProtos;
 import org.apache.hadoop.hbase.testclassification.SmallTests;
-import org.junit.ClassRule;
+import org.apache.hadoop.hbase.testclassification.MasterTests;
+
 import org.junit.Test;
 import org.junit.experimental.categories.Category;
 
-import org.apache.hadoop.hbase.shaded.protobuf.generated.ProcedureProtos;
+import static org.junit.Assert.assertEquals;
 
 @Category({MasterTests.class, SmallTests.class})
 public class TestProcedureUtil {
-
-  @ClassRule
-  public static final HBaseClassTestRule CLASS_RULE =
-      HBaseClassTestRule.forClass(TestProcedureUtil.class);
-
   @Test
   public void testValidation() throws Exception {
     ProcedureUtil.validateClass(new TestProcedure(10));

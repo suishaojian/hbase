@@ -17,17 +17,14 @@
  */
 package org.apache.hadoop.hbase.client;
 
-import static org.junit.Assert.fail;
-
 import java.util.Arrays;
 import java.util.List;
 import java.util.function.Consumer;
-import org.apache.hadoop.hbase.HBaseClassTestRule;
 import org.apache.hadoop.hbase.HRegionInfo;
 import org.apache.hadoop.hbase.TableName;
 import org.apache.hadoop.hbase.testclassification.ClientTests;
 import org.apache.hadoop.hbase.testclassification.SmallTests;
-import org.junit.ClassRule;
+import static org.junit.Assert.fail;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.experimental.categories.Category;
@@ -38,10 +35,6 @@ import org.junit.rules.TestName;
  */
 @Category({ClientTests.class, SmallTests.class})
 public class TestImmutableHRegionInfo {
-
-  @ClassRule
-  public static final HBaseClassTestRule CLASS_RULE =
-      HBaseClassTestRule.forClass(TestImmutableHRegionInfo.class);
 
   @Rule
   public TestName name = new TestName();

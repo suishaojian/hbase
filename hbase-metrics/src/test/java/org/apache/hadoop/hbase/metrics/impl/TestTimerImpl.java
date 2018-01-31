@@ -20,11 +20,10 @@ package org.apache.hadoop.hbase.metrics.impl;
 import static org.junit.Assert.assertEquals;
 
 import java.util.concurrent.TimeUnit;
-import org.apache.hadoop.hbase.HBaseClassTestRule;
+
 import org.apache.hadoop.hbase.metrics.Timer;
 import org.apache.hadoop.hbase.testclassification.SmallTests;
 import org.junit.Before;
-import org.junit.ClassRule;
 import org.junit.Test;
 import org.junit.experimental.categories.Category;
 
@@ -33,10 +32,6 @@ import org.junit.experimental.categories.Category;
  */
 @Category(SmallTests.class)
 public class TestTimerImpl {
-
-  @ClassRule
-  public static final HBaseClassTestRule CLASS_RULE =
-      HBaseClassTestRule.forClass(TestTimerImpl.class);
 
   private Timer timer;
 

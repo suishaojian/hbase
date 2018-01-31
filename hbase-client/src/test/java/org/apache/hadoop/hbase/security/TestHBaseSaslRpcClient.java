@@ -28,6 +28,7 @@ import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
 import java.io.IOException;
+
 import javax.security.auth.callback.Callback;
 import javax.security.auth.callback.CallbackHandler;
 import javax.security.auth.callback.NameCallback;
@@ -38,7 +39,7 @@ import javax.security.sasl.RealmCallback;
 import javax.security.sasl.RealmChoiceCallback;
 import javax.security.sasl.Sasl;
 import javax.security.sasl.SaslClient;
-import org.apache.hadoop.hbase.HBaseClassTestRule;
+
 import org.apache.hadoop.hbase.security.AbstractHBaseSaslRpcClient.SaslClientCallbackHandler;
 import org.apache.hadoop.hbase.testclassification.SecurityTests;
 import org.apache.hadoop.hbase.testclassification.SmallTests;
@@ -50,7 +51,6 @@ import org.apache.hadoop.security.token.TokenIdentifier;
 import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
 import org.junit.BeforeClass;
-import org.junit.ClassRule;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.experimental.categories.Category;
@@ -61,10 +61,6 @@ import org.apache.hbase.thirdparty.com.google.common.base.Strings;
 
 @Category({SecurityTests.class, SmallTests.class})
 public class TestHBaseSaslRpcClient {
-
-  @ClassRule
-  public static final HBaseClassTestRule CLASS_RULE =
-      HBaseClassTestRule.forClass(TestHBaseSaslRpcClient.class);
 
   static {
     System.setProperty("java.security.krb5.realm", "DOMAIN.COM");

@@ -19,8 +19,10 @@ package org.apache.hadoop.hbase.client.example;
 
 import static org.junit.Assert.assertEquals;
 
+import org.apache.hbase.thirdparty.com.google.common.io.ByteStreams;
+
 import java.nio.charset.StandardCharsets;
-import org.apache.hadoop.hbase.HBaseClassTestRule;
+
 import org.apache.hadoop.hbase.HBaseTestingUtility;
 import org.apache.hadoop.hbase.TableName;
 import org.apache.hadoop.hbase.testclassification.ClientTests;
@@ -36,18 +38,11 @@ import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.HttpClientBuilder;
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
-import org.junit.ClassRule;
 import org.junit.Test;
 import org.junit.experimental.categories.Category;
 
-import org.apache.hbase.thirdparty.com.google.common.io.ByteStreams;
-
 @Category({ ClientTests.class, MediumTests.class })
 public class TestHttpProxyExample {
-
-  @ClassRule
-  public static final HBaseClassTestRule CLASS_RULE =
-      HBaseClassTestRule.forClass(TestHttpProxyExample.class);
 
   private static final HBaseTestingUtility UTIL = new HBaseTestingUtility();
 

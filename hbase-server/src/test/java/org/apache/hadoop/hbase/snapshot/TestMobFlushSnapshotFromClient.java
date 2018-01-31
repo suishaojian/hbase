@@ -18,8 +18,9 @@
 package org.apache.hadoop.hbase.snapshot;
 
 import java.io.IOException;
+
 import org.apache.hadoop.conf.Configuration;
-import org.apache.hadoop.hbase.HBaseClassTestRule;
+import org.apache.hadoop.hbase.CategoryBasedTimeout;
 import org.apache.hadoop.hbase.HBaseTestingUtility;
 import org.apache.hadoop.hbase.TableName;
 import org.apache.hadoop.hbase.client.Table;
@@ -29,6 +30,7 @@ import org.apache.hadoop.hbase.testclassification.LargeTests;
 import org.junit.BeforeClass;
 import org.junit.ClassRule;
 import org.junit.experimental.categories.Category;
+import org.junit.rules.TestRule;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -42,12 +44,11 @@ import org.slf4j.LoggerFactory;
  */
 @Category({ClientTests.class, LargeTests.class})
 public class TestMobFlushSnapshotFromClient extends TestFlushSnapshotFromClient {
+  private static final Logger LOG = LoggerFactory.getLogger(TestFlushSnapshotFromClient.class);
 
   @ClassRule
-  public static final HBaseClassTestRule CLASS_RULE =
-      HBaseClassTestRule.forClass(TestMobFlushSnapshotFromClient.class);
-
-  private static final Logger LOG = LoggerFactory.getLogger(TestFlushSnapshotFromClient.class);
+  public static final TestRule timeout =
+      CategoryBasedTimeout.forClass(TestMobFlushSnapshotFromClient.class);
 
   @BeforeClass
   public static void setupCluster() throws Exception {

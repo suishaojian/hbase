@@ -17,7 +17,6 @@
  */
 package org.apache.hadoop.hbase.tool;
 
-import org.apache.hadoop.hbase.HBaseClassTestRule;
 import org.apache.hadoop.hbase.HBaseTestingUtility;
 import org.apache.hadoop.hbase.security.HadoopSecurityEnabledUserProviderForTesting;
 import org.apache.hadoop.hbase.security.UserProvider;
@@ -26,7 +25,6 @@ import org.apache.hadoop.hbase.security.access.SecureTestUtil;
 import org.apache.hadoop.hbase.testclassification.LargeTests;
 import org.apache.hadoop.hbase.testclassification.MiscTests;
 import org.junit.BeforeClass;
-import org.junit.ClassRule;
 import org.junit.Test;
 import org.junit.experimental.categories.Category;
 
@@ -42,10 +40,6 @@ import org.junit.experimental.categories.Category;
 @Category({ MiscTests.class, LargeTests.class })
 public class TestSecureLoadIncrementalHFilesSplitRecovery
     extends TestLoadIncrementalHFilesSplitRecovery {
-
-  @ClassRule
-  public static final HBaseClassTestRule CLASS_RULE =
-      HBaseClassTestRule.forClass(TestSecureLoadIncrementalHFilesSplitRecovery.class);
 
   // This "overrides" the parent static method
   // make sure they are in sync

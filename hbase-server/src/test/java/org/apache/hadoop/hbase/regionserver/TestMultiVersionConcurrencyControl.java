@@ -20,11 +20,10 @@ package org.apache.hadoop.hbase.regionserver;
 import java.util.Random;
 import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicLong;
-import org.apache.hadoop.hbase.HBaseClassTestRule;
+
 import org.apache.hadoop.hbase.testclassification.MediumTests;
 import org.apache.hadoop.hbase.testclassification.RegionServerTests;
 import org.junit.Assert;
-import org.junit.ClassRule;
 import org.junit.experimental.categories.Category;
 
 /**
@@ -33,11 +32,6 @@ import org.junit.experimental.categories.Category;
  */
 @Category({RegionServerTests.class, MediumTests.class})
 public class TestMultiVersionConcurrencyControl {
-
-  @ClassRule
-  public static final HBaseClassTestRule CLASS_RULE =
-      HBaseClassTestRule.forClass(TestMultiVersionConcurrencyControl.class);
-
   static class Writer implements Runnable {
     final AtomicBoolean finished;
     final MultiVersionConcurrencyControl mvcc;

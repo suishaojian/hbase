@@ -20,17 +20,16 @@ package org.apache.hadoop.hbase.util;
 import static org.junit.Assert.assertTrue;
 
 import java.io.IOException;
+
 import org.apache.hadoop.conf.Configuration;
 import org.apache.hadoop.fs.FileSystem;
 import org.apache.hadoop.fs.Path;
-import org.apache.hadoop.hbase.HBaseClassTestRule;
 import org.apache.hadoop.hbase.HBaseConfiguration;
 import org.apache.hadoop.hbase.HBaseTestingUtility;
 import org.apache.hadoop.hbase.testclassification.MediumTests;
 import org.apache.hadoop.hbase.testclassification.MiscTests;
 import org.apache.hadoop.hdfs.DistributedFileSystem;
 import org.junit.Before;
-import org.junit.ClassRule;
 import org.junit.Test;
 import org.junit.experimental.categories.Category;
 import org.mockito.Mockito;
@@ -42,11 +41,6 @@ import org.slf4j.LoggerFactory;
  */
 @Category({MiscTests.class, MediumTests.class})
 public class TestFSHDFSUtils {
-
-  @ClassRule
-  public static final HBaseClassTestRule CLASS_RULE =
-      HBaseClassTestRule.forClass(TestFSHDFSUtils.class);
-
   private static final Logger LOG = LoggerFactory.getLogger(TestFSHDFSUtils.class);
   private static final HBaseTestingUtility HTU = new HBaseTestingUtility();
   static {
@@ -65,8 +59,9 @@ public class TestFSHDFSUtils {
 
   /**
    * Test recover lease eventually succeeding.
+   * @throws IOException 
    */
-  @Test
+  @Test (timeout = 30000)
   public void testRecoverLease() throws IOException {
     HTU.getConfiguration().setInt("hbase.lease.recovery.dfs.timeout", 1000);
     CancelableProgressable reporter = Mockito.mock(CancelableProgressable.class);
@@ -85,8 +80,9 @@ public class TestFSHDFSUtils {
 
   /**
    * Test that isFileClosed makes us recover lease faster.
+   * @throws IOException
    */
-  @Test
+  @Test (timeout = 30000)
   public void testIsFileClosed() throws IOException {
     // Make this time long so it is plain we broke out because of the isFileClosed invocation.
     HTU.getConfiguration().setInt("hbase.lease.recovery.dfs.timeout", 100000);

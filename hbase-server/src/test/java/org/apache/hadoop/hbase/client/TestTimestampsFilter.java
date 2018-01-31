@@ -1,4 +1,5 @@
 /**
+ *
  * Licensed to the Apache Software Foundation (ASF) under one
  * or more contributor license agreements.  See the NOTICE file
  * distributed with this work for additional information
@@ -23,8 +24,8 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+
 import org.apache.hadoop.hbase.*;
-import org.apache.hadoop.hbase.HBaseClassTestRule;
 import org.apache.hadoop.hbase.filter.Filter;
 import org.apache.hadoop.hbase.filter.TimestampsFilter;
 import org.apache.hadoop.hbase.testclassification.ClientTests;
@@ -34,7 +35,6 @@ import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
-import org.junit.ClassRule;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.experimental.categories.Category;
@@ -49,11 +49,6 @@ import org.slf4j.LoggerFactory;
  */
 @Category({MediumTests.class, ClientTests.class})
 public class TestTimestampsFilter {
-
-  @ClassRule
-  public static final HBaseClassTestRule CLASS_RULE =
-      HBaseClassTestRule.forClass(TestTimestampsFilter.class);
-
   private static final Logger LOG = LoggerFactory.getLogger(TestTimestampsFilter.class);
   private final static HBaseTestingUtility TEST_UTIL = new HBaseTestingUtility();
 
@@ -238,7 +233,7 @@ public class TestTimestampsFilter {
 
   private void testWithVersionDeletes(boolean flushTables) throws IOException {
     final byte [] TABLE = Bytes.toBytes(name.getMethodName() + "_" +
-                                   (flushTables ? "flush" : "noflush"));
+                                   (flushTables ? "flush" : "noflush")); 
     byte [] FAMILY = Bytes.toBytes("event_log");
     byte [][] FAMILIES = new byte[][] { FAMILY };
 

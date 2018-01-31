@@ -15,6 +15,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
 package org.apache.hadoop.hbase.client;
 
 import static org.junit.Assert.assertArrayEquals;
@@ -26,13 +27,11 @@ import java.io.IOException;
 import java.util.Collections;
 import java.util.List;
 import java.util.regex.Pattern;
-import org.apache.hadoop.hbase.HBaseClassTestRule;
 import org.apache.hadoop.hbase.TableName;
 import org.apache.hadoop.hbase.testclassification.ClientTests;
 import org.apache.hadoop.hbase.testclassification.LargeTests;
 import org.apache.hadoop.hbase.util.Bytes;
 import org.junit.After;
-import org.junit.ClassRule;
 import org.junit.Test;
 import org.junit.experimental.categories.Category;
 import org.junit.runner.RunWith;
@@ -41,10 +40,6 @@ import org.junit.runners.Parameterized;
 @RunWith(Parameterized.class)
 @Category({ LargeTests.class, ClientTests.class })
 public class TestAsyncSnapshotAdminApi extends TestAsyncAdminBase {
-
-  @ClassRule
-  public static final HBaseClassTestRule CLASS_RULE =
-      HBaseClassTestRule.forClass(TestAsyncSnapshotAdminApi.class);
 
   private static final Pattern MATCH_ALL = Pattern.compile(".*");
 

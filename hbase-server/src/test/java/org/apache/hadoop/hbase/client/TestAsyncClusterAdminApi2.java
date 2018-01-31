@@ -22,8 +22,8 @@ import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
 import java.util.concurrent.TimeUnit;
+
 import org.apache.commons.io.IOUtils;
-import org.apache.hadoop.hbase.HBaseClassTestRule;
 import org.apache.hadoop.hbase.HConstants;
 import org.apache.hadoop.hbase.master.HMaster;
 import org.apache.hadoop.hbase.regionserver.HRegionServer;
@@ -33,7 +33,6 @@ import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
-import org.junit.ClassRule;
 import org.junit.Test;
 import org.junit.experimental.categories.Category;
 
@@ -42,10 +41,6 @@ import org.junit.experimental.categories.Category;
  */
 @Category({ ClientTests.class, MediumTests.class })
 public class TestAsyncClusterAdminApi2 extends TestAsyncAdminBase {
-
-  @ClassRule
-  public static final HBaseClassTestRule CLASS_RULE =
-      HBaseClassTestRule.forClass(TestAsyncClusterAdminApi2.class);
 
   @BeforeClass
   public static void setUpBeforeClass() throws Exception {

@@ -20,7 +20,6 @@ package org.apache.hadoop.hbase.rsgroup;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 
-import org.apache.hadoop.hbase.HBaseClassTestRule;
 import org.apache.hadoop.hbase.HBaseCluster;
 import org.apache.hadoop.hbase.HBaseTestingUtility;
 import org.apache.hadoop.hbase.HConstants;
@@ -38,7 +37,6 @@ import org.apache.hadoop.hbase.util.Bytes;
 import org.junit.AfterClass;
 import org.junit.Assert;
 import org.junit.BeforeClass;
-import org.junit.ClassRule;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.experimental.categories.Category;
@@ -57,11 +55,6 @@ import org.apache.hbase.thirdparty.com.google.common.collect.Sets;
 // assignment with a timeout.
 @Category(MediumTests.class)
 public class TestRSGroupsOfflineMode {
-
-  @ClassRule
-  public static final HBaseClassTestRule CLASS_RULE =
-      HBaseClassTestRule.forClass(TestRSGroupsOfflineMode.class);
-
   private static final Logger LOG = LoggerFactory.getLogger(TestRSGroupsOfflineMode.class);
   private static HMaster master;
   private static Admin hbaseAdmin;
